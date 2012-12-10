@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns=" http://www.w3.org/ns/widgets" xmlns:rim="http://www.blackberry.com/ns/widgets" version="2.0.0.0">
+<name> IME for Baidu Cloud</name>
+<description>Baidu cloud IME</description>
+<rim:orientation mode="landscape"/>
+<author>nealchen</author>
+<icon src="icon_baidu.png"/>
+<content src="index_baidu.html"/>
+<feature id="blackberry.clipboard"/>
+<access uri ="*"/>
+<feature id="blackberry.invoke" />
+</widget>

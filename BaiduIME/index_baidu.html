@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>云输入法（百度在线输入）</title>
+</head>
+<body>
+
+<div >
+  <h3>云输入法需要在有网络连接的条件下使用！同时请在系统设置中把英文联想功能关闭：</h3>
+  <p> Keyboard ->     Show predictions and suggestions -> OFF</p>
+<table >
+  <tr>
+    <th>快速输入</th>
+    <th><input  id="shortInput"  style="height: 28px; width: 723px; color:#3300CC;font-size: xx-large "></th>
+	<th><input type="button" value="复制" onClick="copyShort()"   style="height: 40px; width: 200px; font-size: large"></th>
+  </tr>
+</table>  
+<div class="btn">
+<input type="button" value="清空" onClick="clearShort()"  style="height: 30px; width: 250px; font-size: large">
+<input type="button" value="Google搜索" onClick="searchByGoogle()"  style="height: 30px; width: 250px; font-size: large">
+<input type="button" value="Bing搜索" onClick="searchByBing()"  style="height: 30px; width: 250px; font-size: large">
+<input type="button" value="百度搜索" onClick="searchByBaidu()"   style="height: 30px; width: 250px; font-size: large">
+</div>  
+</div>
+
+<div class="outer">
+
+<textarea id="TextInput"  cols=100 rows=4   autofocus="autofocus" style=" width: 1000px;color:#3300CC;font-size: xx-large " ></textarea>
+</div>
+
+<div class="btn">
+<input type="button" value="清空" onClick="clearText()"  style="height: 50px; width: 300px; font-size: x-large">
+<input type="button" value="复制" onClick="copyText()"   style="height: 50px; width: 400px; font-size: x-large">
+<input type="button" value="粘贴" onClick="PasteText()"  style="height: 50px; width: 300px; font-size: x-large">
+</div>
+
+<script type="text/javascript" charset="utf-8">
+
+function searchByGoogle()
+{
+	text = document.getElementById("shortInput").value;
+	text = encodeURIComponent(text);
+	url1 = "http://www.google.com/search?q=" + text;
+	var args = new blackberry.invoke.BrowserArguments(url1);
+	blackberry.invoke.invoke(blackberry.invoke.APP_BROWSER, args);
+};
+function searchByBing()
+{
+	text = document.getElementById("shortInput").value;
+	text = encodeURIComponent(text);
+	url2 = "http://www.bing.com/search?q=" + text;
+	var args = new blackberry.invoke.BrowserArguments(url2);
+	blackberry.invoke.invoke(blackberry.invoke.APP_BROWSER, args);
+};
+function searchByBaidu()
+{
+	text = document.getElementById("shortInput").value;
+	text = encodeURIComponent(text);
+	url3 = "http://www.baidu.com/s?wd=" + text;
+	var args = new blackberry.invoke.BrowserArguments(url3);
+	blackberry.invoke.invoke(blackberry.invoke.APP_BROWSER, args);
+};
+function searchBySogou()
+{
+	text = document.getElementById("shortInput").value;
+	text = encodeURIComponent(text);
+	url4 = "http://www.sogou.com/web?query=" + text;
+	var args = new blackberry.invoke.BrowserArguments(url4);
+	blackberry.invoke.invoke(blackberry.invoke.APP_BROWSER, args);
+};
+	
+function clearShort()
+{
+	document.getElementById("shortInput").value = "";
+};
+
+function  copyShort()
+{
+	text = document.getElementById("shortInput").value;
+	blackberry.clipboard.setText(text);
+};
+
+function clearText()
+{
+	document.getElementById("TextInput").value = "";
+};
+
+function  copyText()
+{
+	text = document.getElementById("TextInput").value;
+	blackberry.clipboard.setText(text);
+};
+
+function PasteText()
+{
+	var text = blackberry.clipboard.getText();
+	document.getElementById("TextInput").value += text;
+};
+
+</script>
+<script type="text/javascript" src="bdime_open.js"></script>
+
+
+</body>
+</html>
+
+
+
